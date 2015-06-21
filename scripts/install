@@ -13,14 +13,7 @@ sudo yunohost app checkurl $domain$path -a docker \
 # Remove trailing "/" for next commands
 path=${path%/}
 
-# Install Docker
-sudo apt-get install curl -y -qq
-sudo curl -sSL https://get.docker.com/ | sh
-sudo yunohost service add docker
-sudo service docker start 
-
 # Check ports availability
-
 sudo yunohost app checkport 9000
 if [[ ! $? -eq 0 ]]; then
   exit 1
@@ -28,6 +21,16 @@ fi
 
 # Open port in firewall
 sudo yunohost firewall allow TCP 9000 > /dev/null 2>&1
+
+# Install Docker
+sudo apt-get install curl -y -qq
+sudo curl -sSL https://get.docker.com/ | sh
+sudo yunohost service add docker
+sudo service docker start 
+sudo usermod -aG docker admin
+su - admin
+groups | grep -q docker
+sudo service docker restart
 
 # Create DockerUI container
 sudo docker run -d -p 9000:9000 --privileged -v /var/run/docker.sock:/var/run/docker.sock --name dockerui dockerui/dockerui
