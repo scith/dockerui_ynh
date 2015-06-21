@@ -28,8 +28,7 @@ sudo curl -sSL https://get.docker.com/ | sh
 sudo yunohost service add docker
 sudo service docker start 
 sudo usermod -aG docker admin
-su - admin
-groups | grep -q docker
+newgrp docker
 sudo service docker restart
 
 # Create DockerUI container
