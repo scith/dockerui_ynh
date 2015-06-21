@@ -16,6 +16,8 @@ path=${path%/}
 # Install Docker
 sudo apt-get install curl -y -qq
 sudo curl -sSL https://get.docker.com/ | sh
+sudo yunohost service add docker
+sudo service docker start 
 
 # Check ports availability
 
@@ -28,10 +30,7 @@ fi
 sudo yunohost firewall allow TCP 9000 > /dev/null 2>&1
 
 # Create DockerUI container
-sudo docker run -d -p 9000:9000 --privileged -v /var/run/docker.sock:/var/run/docker.sock dockerui/dockerui
-
-# Add services monitoring
-sudo yunohost service add docker
+sudo docker run -d -p 9000:9000 --privileged -v /var/run/docker.sock:/var/run/docker.sock --name dockerui dockerui/dockerui
 
 # Configure Nginx and reload
 sed -i "s@PATHTOCHANGE@$path@g" ../conf/nginx.conf
