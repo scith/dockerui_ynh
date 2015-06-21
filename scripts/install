@@ -1,0 +1,40 @@
+#!/bin/bash
+
+set -e
+
+# Retrieve arguments
+domain=$1
+path=$2
+
+# Check domain/path availability
+sudo yunohost app checkurl $domain$path -a docker \
+	|| (echo "Path not available: $domain$path" && exit 1)
+
+# Remove trailing "/" for next commands
+path=${path%/}
+
+# Install Docker
+sudo apt-get install curl -y -qq
+sudo curl -sSL https://get.docker.com/ | sh
+
+# Check ports availability
+
+sudo yunohost app checkport 9000
+if [[ ! $? -eq 0 ]]; then
+  exit 1
+fi
+
+# Open port in firewall
+sudo yunohost firewall allow TCP 9000 > /dev/null 2>&1
+
+# Create DockerUI container
+sudo docker run -d -p 9000:9000 --privileged -v /var/run/docker.sock:/var/run/docker.sock dockerui/dockerui
+
+# Add services monitoring
+sudo yunohost service add docker
+
+# Configure Nginx and reload
+sed -i "s@PATHTOCHANGE@$path@g" ../conf/nginx.conf
+sudo cp ../conf/nginx.conf /etc/nginx/conf.d/$domain.d/docker.conf
+sudo service nginx reload
+echo $?

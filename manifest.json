@@ -1,0 +1,35 @@
+{
+    "name": "Docker",
+    "id": "docker",
+    "description": {
+        "en": "Docker allows to deploy applications which have not yet been integrated with YunoHost",
+        "fr": "Docker permet de déployer des applications qui n'ont pas encore été intégrées à YunoHost"
+    },
+    "developer": {
+        "name": "scith"
+    },
+    "multi_instance": "false",
+    "arguments": {
+        "install" : [
+            {
+                "name": "domain",
+                "type": "domain",
+                "ask": {
+                    "en": "Choose a domain for Docker",
+                    "fr": "Choisissez un domaine pour Docker"
+                },
+                "example": "domain.org"
+            },
+            {
+                "name": "path",
+                "type": "path",
+                "ask": {
+                    "en": "Choose a path for Docker",
+                    "fr": "Choisissez un chemin pour Docker"
+                },
+                "example": "/docker",
+                "default": "/docker"
+            }
+        ]
+    }
+}
