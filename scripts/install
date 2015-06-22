@@ -27,6 +27,7 @@ else
 	sudo apt-get install curl -y -qq
 	sudo curl -sSL https://get.docker.com/ | sh
 	sudo yunohost service add docker
+	sudo update-rc.d docker defaults
 	sudo service docker start 
 	sudo usermod -aG docker admin
 	newgrp docker

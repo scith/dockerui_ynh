@@ -1,5 +1,5 @@
 {
-    "name": "Docker",
+    "name": "DockerUI",
     "id": "dockerui",
     "description": {
         "en": "Docker allows to deploy applications which have not yet been integrated with YunoHost",
@@ -15,8 +15,8 @@
                 "name": "domain",
                 "type": "domain",
                 "ask": {
-                    "en": "Choose a domain for Docker",
-                    "fr": "Choisissez un domaine pour Docker"
+                    "en": "Choose a domain for DockerUI",
+                    "fr": "Choisissez un domaine pour DockerUI"
                 },
                 "example": "domain.org"
             },
@@ -24,8 +24,8 @@
                 "name": "path",
                 "type": "path",
                 "ask": {
-                    "en": "Choose a path for Docker",
-                    "fr": "Choisissez un chemin pour Docker"
+                    "en": "Choose a path for DockerUI",
+                    "fr": "Choisissez un chemin pour DockerUI"
                 },
                 "example": "/docker",
                 "default": "/docker"
