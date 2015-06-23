@@ -4,6 +4,7 @@ Warning: This YunoHost app is still in development. Use it at your own risk!
 
 This YunoHost application installs Docker along with the DockerUI web interface
 
+![DockerUI](http://techblog.bigdata-analyst.de/content/images/2014/Apr/Bildschirmfoto-2014-04-24-um-17-35-23.png)
 
 
 ## DockerUI
