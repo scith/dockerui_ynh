@@ -35,7 +35,7 @@ fi
 sudo service docker restart
 
 # Create DockerUI container
-sudo docker run -d --restart always -p 9000:9000 --privileged -v /var/run/docker.sock:/var/run/docker.sock --name dockerui dockerui/dockerui
+sudo docker run -d --restart always -p 127.0.0.1:9000:9000 --privileged -v /var/run/docker.sock:/var/run/docker.sock --name dockerui dockerui/dockerui
 
 # Configure Nginx and reload
 sed -i "s@PATHTOCHANGE@$path@g" ../conf/nginx.conf
