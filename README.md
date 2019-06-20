@@ -1,5 +1,10 @@
 Docker with DockerUI for YunoHost 
 ----------------------------------------
+
+Docker ui is replaced by [portainer](https://github.com/YunoHost-Apps/portainer_ynh)
+
+
+
 Warning: This YunoHost app is still in development. Use it at your own risk!
 
 This YunoHost application installs Docker along with the DockerUI web interface
