@@ -5,9 +5,17 @@
         "en": "Docker allows to deploy applications which have not yet been integrated with YunoHost",
         "fr": "Docker permet de déployer des applications qui n'ont pas encore été intégrées à YunoHost"
     },
-    "developer": {
+    "maintainer": [
+      {
         "name": "scith"
-    },
+      },
+      {
+        "name": "tituspijean",
+        "email": "tituspijean@outlook.com"
+      }],
+      "requirements": {
+          "yunohost": ">= 3.5"
+      },
     "multi_instance": "false",
     "arguments": {
         "install" : [
