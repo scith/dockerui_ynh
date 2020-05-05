@@ -8,11 +8,8 @@
     "maintainer": [
       {
         "name": "scith"
-      },
-      {
-        "name": "tituspijean",
-        "email": "tituspijean@outlook.com"
-      }],
+      }
+    ],
       "requirements": {
           "yunohost": ">= 3.5"
       },
